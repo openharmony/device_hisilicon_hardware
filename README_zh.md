@@ -10,7 +10,7 @@
 
 ## 约束<a name="section12212842173518"></a>
 
-支持HiSpark\_taurus（Hi3516DV300） 、HiSpark\_aries（Hi3518EV300）。
+支持HiSpark\_taurus（Hi3516DV300）。
 
 ## 对应仓库<a name="section641143415335"></a>
 

@@ -10,7 +10,7 @@ This repository stores the libraries for the southbound interface implementation
 
 ## Constraints<a name="section12212842173518"></a>
 
-Currently, HiSpark\_taurus \(Hi3516D V300\) and HiSpark\_aries \(Hi3518E V300\) are supported.
+Currently, HiSpark\_taurus \(Hi3516D V300\) is supported.
 
 ## Repositories Involved<a name="section641143415335"></a>
 
