@@ -15,9 +15,14 @@ import("//build/lite/config/component/lite_component.gni")
 import("//build/lite/config/subsystem/aafwk/path.gni")
 import("//build/lite/ndk/ndk.gni")
 
-if (ohos_build_compiler == "clang") {
+if (ohos_build_compiler == "clang" && ohos_kernel_type == "liteos_a") {
   copy("hdi_media") {
     sources = [ "hal/hdi_media/${board_name}/llvm/ohos/libs/libhdi_media.so" ]
+    outputs = [ "$root_out_dir/libhdi_media.so" ]
+  }
+} else if (ohos_build_compiler == "clang" && ohos_kernel_type == "linux") {
+  copy("hdi_media") {
+    sources = [ "hal/hdi_media/${board_name}/llvm/linux/libs/libhdi_media.so" ]
     outputs = [ "$root_out_dir/libhdi_media.so" ]
   }
 }
