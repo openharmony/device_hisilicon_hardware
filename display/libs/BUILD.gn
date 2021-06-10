@@ -8,19 +8,34 @@ if (defined(ohos_lite)) {
 }
 
 if (defined(ohos_lite)) {
-  if (ohos_build_compiler == "clang") {
+  if (ohos_build_compiler == "clang" && ohos_kernel_type == "liteos_a") {
     copy("display_layer") {
-      sources = [ "${board_name}/llvm/libdisplay_layer.so" ]
+      sources = [ "${board_name}/llvm/ohos/libdisplay_layer.so" ]
       outputs = [ "$root_out_dir/libdisplay_layer.so" ]
     }
 
     copy("display_gfx") {
-      sources = [ "${board_name}/llvm/libdisplay_gfx.so" ]
+      sources = [ "${board_name}/llvm/ohos/libdisplay_gfx.so" ]
       outputs = [ "$root_out_dir/libdisplay_gfx.so" ]
     }
 
     copy("display_gralloc") {
-      sources = [ "${board_name}/llvm/libdisplay_gralloc.so" ]
+      sources = [ "${board_name}/llvm/ohos/libdisplay_gralloc.so" ]
+      outputs = [ "$root_out_dir/libdisplay_gralloc.so" ]
+    }
+  } else if (ohos_build_compiler == "clang" && ohos_kernel_type == "linux") {
+    copy("display_layer") {
+      sources = [ "${board_name}/llvm/linux/libdisplay_layer.so" ]
+      outputs = [ "$root_out_dir/libdisplay_layer.so" ]
+    }
+
+    copy("display_gfx") {
+      sources = [ "${board_name}/llvm/linux/libdisplay_gfx.so" ]
+      outputs = [ "$root_out_dir/libdisplay_gfx.so" ]
+    }
+
+    copy("display_gralloc") {
+      sources = [ "${board_name}/llvm/linux/libdisplay_gralloc.so" ]
       outputs = [ "$root_out_dir/libdisplay_gralloc.so" ]
     }
   }
