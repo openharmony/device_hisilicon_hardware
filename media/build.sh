@@ -26,12 +26,24 @@ function main(){
     fi
 
     cp -rf $CUR_DIR/hal/audio/$BOARD_NAME/$BUILD_COMPILER/$OS_TYPE/libs/libaudio_hw.so $OUT_DIR/
+    cp -rf $CUR_DIR/hal/audio/$BOARD_NAME/$BUILD_COMPILER/$OS_TYPE/libs/libaudio_input_port.so $OUT_DIR/
+    cp -rf $CUR_DIR/hal/audio/$BOARD_NAME/$BUILD_COMPILER/$OS_TYPE/libs/libaudio_output_port.so $OUT_DIR/
+
     cp -rf $CUR_DIR/hal/codec/$BOARD_NAME/$BUILD_COMPILER/$OS_TYPE/libs/libcodec.so $OUT_DIR/
     cp -rf $CUR_DIR/hal/codec/$BOARD_NAME/$BUILD_COMPILER/$OS_TYPE/libs/libhiaacdec.so $OUT_DIR/
-    cp -rf $CUR_DIR/hal/format/$BOARD_NAME/$BUILD_COMPILER/$OS_TYPE/libs/libformat_demuxer.so $OUT_DIR/
-    cp -rf $CUR_DIR/hal/format/$BOARD_NAME/$BUILD_COMPILER/$OS_TYPE/libs/libformat_muxer.so $OUT_DIR/
+    cp -rf $CUR_DIR/hal/codec/$BOARD_NAME/$BUILD_COMPILER/$OS_TYPE/libs/libhimp3dec.so $OUT_DIR/
+    cp -rf $CUR_DIR/hal/codec/$BOARD_NAME/$BUILD_COMPILER/$OS_TYPE/libs/libplugin_adec_35xx.so $OUT_DIR/
+    cp -rf $CUR_DIR/hal/codec/$BOARD_NAME/$BUILD_COMPILER/$OS_TYPE/libs/libplugin_aenc_35xx.so $OUT_DIR/
+    cp -rf $CUR_DIR/hal/codec/$BOARD_NAME/$BUILD_COMPILER/$OS_TYPE/libs/libplugin_vdec_35xx.so $OUT_DIR/
+    cp -rf $CUR_DIR/hal/codec/$BOARD_NAME/$BUILD_COMPILER/$OS_TYPE/libs/libplugin_venc_35xx.so $OUT_DIR/
 
-    cp -rf $CUR_DIR/hal/format/$BOARD_NAME/$BUILD_COMPILER/$OS_TYPE/libs/libffmpeg_demuxer.so $OUT_DIR/
+    cp -rf $CUR_DIR/hal/format/$BOARD_NAME/$BUILD_COMPILER/$OS_TYPE/libs/libformat_hw.so $OUT_DIR/
+    cp -rf $CUR_DIR/hal/format/$BOARD_NAME/$BUILD_COMPILER/$OS_TYPE/libs/libplugin_demuxer_ffmpeg.so $OUT_DIR/
+    cp -rf $CUR_DIR/hal/format/$BOARD_NAME/$BUILD_COMPILER/$OS_TYPE/libs/libplugin_demuxer_mpf.so $OUT_DIR/
+    cp -rf $CUR_DIR/hal/format/$BOARD_NAME/$BUILD_COMPILER/$OS_TYPE/libs/libplugin_demuxer_raw.so $OUT_DIR/
+    cp -rf $CUR_DIR/hal/format/$BOARD_NAME/$BUILD_COMPILER/$OS_TYPE/libs/libplugin_muxer_recorder.so $OUT_DIR/
+
+    cp -rf $CUR_DIR/hal/common/$BOARD_NAME/$BUILD_COMPILER/$OS_TYPE/libs/libmedia_hal_common.so $OUT_DIR/
 }
 
 main "$@"
