@@ -90,7 +90,7 @@ if (defined(ohos_lite)) {
 
   ohos_prebuilt_shared_library("media_hal_common") {
     source =
-        "media/hal/common/hi3516dv300/llvm/ohos/libs/libmedia_hal_common.so"
+        "media/hal/common/hi3516dv300/llvm/ext/libmedia_hal_common.so"
     subsystem_name = "hisilicon_products"
   }
 
