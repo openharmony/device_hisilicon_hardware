@@ -76,22 +76,38 @@ if (defined(ohos_lite)) {
   }
 
   ohos_prebuilt_shared_library("display_device") {
-    source = "hispark_taurus/ext/libdisplay_device.z.so"
+    if (use_musl) {
+        source = "hispark_taurus/llvm/linux_standard/libdisplay_device.z.so"
+    } else {
+        source = "hispark_taurus/ext/libdisplay_device.z.so"
+    }
     subsystem_name = "hdf"
   }
 
   ohos_prebuilt_shared_library("display_gfx") {
-    source = "hispark_taurus/ext/libdisplay_gfx.z.so"
+    if (use_musl) {
+        source = "hispark_taurus/llvm/linux_standard/libdisplay_gfx.z.so"
+    } else {
+        source = "hispark_taurus/ext/libdisplay_gfx.z.so"
+    }
     subsystem_name = "hdf"
   }
 
   ohos_prebuilt_shared_library("display_gralloc") {
-    source = "hispark_taurus/ext/libdisplay_gralloc.z.so"
+    if (use_musl) {
+        source = "hispark_taurus/llvm/linux_standard/libdisplay_gralloc.z.so"
+    } else {
+        source = "hispark_taurus/ext/libdisplay_gralloc.z.so"
+    }
     subsystem_name = "hdf"
   }
 
   ohos_prebuilt_shared_library("display_layer") {
-    source = "hispark_taurus/ext/libdisplay_layer.z.so"
+    if (use_musl) {
+        source = "hispark_taurus/llvm/linux_standard/libdisplay_layer.z.so"
+    } else {
+        source = "hispark_taurus/ext/libdisplay_layer.z.so"
+    }
     subsystem_name = "hdf"
   }
 }
