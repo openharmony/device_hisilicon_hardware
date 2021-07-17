@@ -1,0 +1,5 @@
+group("hdi_display") {
+  deps = [
+    "libs:hdi_display",
+  ]
+}
