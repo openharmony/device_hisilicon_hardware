@@ -18,11 +18,6 @@ config("engine_nnie_config") {
 
 copy("engine_nnie_sdk") {
   sources = [
-    "//device/hisilicon/$board_name/sdk_liteos/mpp/lib/libVoiceEngine.so",
-    "//device/hisilicon/$board_name/sdk_liteos/mpp/lib/libdnvqe.so",
-    "//device/hisilicon/$board_name/sdk_liteos/mpp/lib/libmpi.so",
-    "//device/hisilicon/$board_name/sdk_liteos/mpp/lib/libnnie.so",
-    "//device/hisilicon/$board_name/sdk_liteos/mpp/lib/libupvqe.so",
     "//device/hisilicon/hardware/ai/hal/$board_name/libs/libnnie_adapter.so",
   ]
   outputs = [ "$root_out_dir/{{source_file_part}}" ]
