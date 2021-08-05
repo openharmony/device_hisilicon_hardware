@@ -44,6 +44,9 @@ function main(){
     cp -rf $CUR_DIR/hal/format/$BOARD_NAME/$BUILD_COMPILER/$OS_TYPE/libs/libplugin_muxer_recorder.so $OUT_DIR/
 
     cp -rf $CUR_DIR/hal/common/$BOARD_NAME/$BUILD_COMPILER/$OS_TYPE/libs/libmedia_hal_common.so $OUT_DIR/
+
+    cp -rf $CUR_DIR/hal/camera/$BOARD_NAME/$BUILD_COMPILER/$OS_TYPE/libs/libhdi_camera.so $OUT_DIR/
+    cp -rf $CUR_DIR/hal/videodisplay/$BOARD_NAME/$BUILD_COMPILER/$OS_TYPE/libs/libhdi_videodisplayer.so $OUT_DIR/
 }
 
 main "$@"
