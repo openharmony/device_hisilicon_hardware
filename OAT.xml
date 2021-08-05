@@ -91,7 +91,7 @@ Note:If the text contains special characters, please escape them according to th
 			</filefilter>
 			<filefilter name="binaryFileTypePolicyFilter" desc="Filters for binary file policies" >
 				<filteritem type="filename" name="*.z.so" desc="self developed code"/>
-				<filteritem type="filename" name="*so" desc="self developed code"/>
+				<filteritem type="filename" name="*so|*.a" desc="self developed code"/>
 			</filefilter>
 
 		</filefilterlist>
