@@ -1,5 +1,7 @@
 group("hdi_display") {
-  deps = [
-    "libs:hdi_display",
-  ]
+  if (board_name == "hi3516dv300" || board_name == "hispark_taurus" ||
+      board_name == "hi3518ev300" || board_name == "hispark_aries" ||
+      board_name == "aegis_hi3516dv300") {
+    deps = [ "libs:hdi_display" ]
+  }
 }
