@@ -1,13 +1,20 @@
-# Copyright (c) Hisilicon Technologies Co., Ltd. 2021-2021. All rights reserved.
-if (defined(ohos_lite)) {
-  import("//build/lite/config/component/lite_component.gni")
-  import("//build/lite/config/subsystem/aafwk/path.gni")
-  import("//build/lite/ndk/ndk.gni")
-} else {
-  import("//build/ohos.gni")
-}
+# Copyright (c) 2021 Huawei Device Co., Ltd.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 if (defined(ohos_lite)) {
+  import("//build/lite/config/component/lite_component.gni")
+  import("//build/lite/ndk/ndk.gni")
+
   if (ohos_build_compiler == "clang" && ohos_kernel_type == "liteos_a") {
     copy("display_layer") {
       sources = [ "${board_name}/llvm/ohos/libdisplay_layer.so" ]
@@ -66,47 +73,60 @@ if (defined(ohos_lite)) {
     ]
   }
 } else {
-  group("hdi_display") {
-    deps = [
-      ":display_device",
-      ":display_gfx",
-      ":display_gralloc",
-      ":display_layer",
-    ]
-  }
+  import("//build/ohos.gni")
 
   ohos_prebuilt_shared_library("display_device") {
     if (use_musl) {
-        source = "hispark_taurus/llvm/linux_standard/libdisplay_device.z.so"
+      if (target_cpu == "arm") {
+        source = "hispark_taurus/llvm/linux_standard/lib/libdisplay_device.z.so"
+      } else {
+        source =
+            "hispark_taurus/llvm/linux_standard/lib64/libdisplay_device.z.so"
+      }
     } else {
-        source = "hispark_taurus/ext/libdisplay_device.z.so"
-    }
-    subsystem_name = "hdf"
-  }
-
-  ohos_prebuilt_shared_library("display_gfx") {
-    if (use_musl) {
-        source = "hispark_taurus/llvm/linux_standard/libdisplay_gfx.z.so"
-    } else {
-        source = "hispark_taurus/ext/libdisplay_gfx.z.so"
+      source = "hispark_taurus/ext/libdisplay_device.z.so"
     }
     subsystem_name = "hdf"
   }
 
   ohos_prebuilt_shared_library("display_gralloc") {
     if (use_musl) {
-        source = "hispark_taurus/llvm/linux_standard/libdisplay_gralloc.z.so"
+      if (target_cpu == "arm") {
+        source =
+            "hispark_taurus/llvm/linux_standard/lib/libdisplay_gralloc.z.so"
+      } else {
+        source =
+            "hispark_taurus/llvm/linux_standard/lib64/libdisplay_gralloc.z.so"
+      }
     } else {
-        source = "hispark_taurus/ext/libdisplay_gralloc.z.so"
+      source = "hispark_taurus/ext/libdisplay_gralloc.z.so"
+    }
+    subsystem_name = "hdf"
+  }
+
+  ohos_prebuilt_shared_library("display_gfx") {
+    if (use_musl) {
+      if (target_cpu == "arm") {
+        source = "hispark_taurus/llvm/linux_standard/lib/libdisplay_gfx.z.so"
+      } else {
+        source = "hispark_taurus/llvm/linux_standard/lib64/libdisplay_gfx.z.so"
+      }
+    } else {
+      source = "hispark_taurus/ext/libdisplay_gfx.z.so"
     }
     subsystem_name = "hdf"
   }
 
   ohos_prebuilt_shared_library("display_layer") {
     if (use_musl) {
-        source = "hispark_taurus/llvm/linux_standard/libdisplay_layer.z.so"
+      if (target_cpu == "arm") {
+        source = "hispark_taurus/llvm/linux_standard/lib/libdisplay_layer.z.so"
+      } else {
+        source =
+            "hispark_taurus/llvm/linux_standard/lib64/libdisplay_layer.z.so"
+      }
     } else {
-        source = "hispark_taurus/ext/libdisplay_layer.z.so"
+      source = "hispark_taurus/ext/libdisplay_layer.z.so"
     }
     subsystem_name = "hdf"
   }
