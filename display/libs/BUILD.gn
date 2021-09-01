@@ -134,10 +134,10 @@ if (defined(ohos_lite)) {
   ohos_prebuilt_shared_library("display_device_drm") {
     if (use_musl) {
       if (target_cpu == "arm") {
-        source = "hispark_taurus/llvm/linux_standard/lib/libdisplay_device_drm.z.so"
-      } else {
         source =
-            "hispark_taurus/llvm/linux_standard/lib64/libdisplay_device_drm.z.so"
+            "hispark_taurus/llvm/linux_standard/lib/libdisplay_device_drm.z.so"
+      } else {
+        source = "hispark_taurus/llvm/linux_standard/lib64/libdisplay_device_drm.z.so"
       }
     }
     subsystem_name = "hdf"
