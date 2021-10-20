@@ -20,23 +20,24 @@ if (defined(ohos_lite)) {
     }
   }
 } else {
-  group("display_device") {
-    deps = [ "libs:display_device" ]
+  group("display_gralloc") {
+    deps = [
+      "//drivers/peripheral/display/hal/default_standard:def_display_gralloc",
+    ]
   }
 
-  group("display_gralloc") {
-    deps = [ "libs:display_gralloc" ]
+  group("display_device") {
+    deps = [
+      "//drivers/peripheral/display/hal/default_standard:def_display_device",
+    ]
   }
 
   group("display_gfx") {
     deps = [ "libs:display_gfx" ]
   }
 
+  #This lib is just used for video module with VO.
   group("display_layer") {
     deps = [ "libs:display_layer" ]
-  }
-
-  group("display_device_drm") {
-    deps = [ "libs:display_device_drm" ]
   }
 }
